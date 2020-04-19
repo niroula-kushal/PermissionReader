@@ -1,0 +1,28 @@
+﻿{
+  "Inventory" : {
+    "Sales" : [
+      "Create",
+      "View",
+      "Cancel"
+    ]
+  },
+  "UserManagement" : {
+    "User" : [
+      "Create",
+      "Update",
+      "Disable"
+    ],
+    "ACL" : {
+      "Role" : [
+        "Create",
+        "Update",
+        "Delete"
+      ],
+      "Permission" : [
+        "Assign",
+        "Revoke",
+        "View"
+      ]
+    }
+  }
+}
