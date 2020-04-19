@@ -6,14 +6,14 @@ namespace DynamicPermissionList
     public class PermissionJsonParser
     {
         public static List<Permission> parse(string json)
-            => parseJsonObject(json);
+            => parseJsonObject(JObject.Parse(json));
 
-        private static List<Permission> parseJsonObject(string json, Permission parent = null)
+        private static List<Permission> parseJsonObject(JObject jObj, Permission parent = null)
         {
-            var jObj = JObject.Parse(json);
             var topPermissions = new List<Permission>();
             foreach (var item in jObj)
             {
+                
                 var permission = new Permission(item.Key);
                 if (parent != null)
                 {
@@ -27,10 +27,10 @@ namespace DynamicPermissionList
                 switch (item.Value.Type)
                 {
                     case JTokenType.Object:
-                        parseJsonObject(item.Value.ToString(), permission);
+                        parseJsonObject((JObject) item.Value, permission);
                         break;
                     case JTokenType.Array:
-                        parseJsonArray(item.Value.ToString(), permission);
+                        parseJsonArray( (JArray) item.Value, permission);
                         break;
                 }
             }
@@ -38,9 +38,8 @@ namespace DynamicPermissionList
             return topPermissions;
         }
 
-        private static void parseJsonArray(string json, Permission parent)
+        private static void parseJsonArray(JArray jArr, Permission parent)
         {
-            var jArr = JArray.Parse(json);
             foreach (var item in jArr)
             {
                 var permission = new Permission(item.Value<string>(), true);
