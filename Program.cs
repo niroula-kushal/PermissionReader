@@ -9,10 +9,7 @@ namespace DynamicPermissionList
         {
             var json = File.ReadAllText(@"permissions.json");
             var permissions = PermissionJsonParser.parse(json);
-            foreach (var permission in permissions)
-            {
-                renderPermission(permission);
-            }
+            permissions.ForEach(renderPermission);
         }
 
         private static void renderPermission(Permission permission)
@@ -28,10 +25,7 @@ namespace DynamicPermissionList
             Console.Write("\n");
             if (!permission.isLeaf)
             {
-                foreach (var child in permission.children)
-                {
-                    renderPermission(child);
-                }
+                permission.children.ForEach(renderPermission);
             }
         }
     }
