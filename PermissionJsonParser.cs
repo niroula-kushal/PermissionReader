@@ -40,9 +40,9 @@ namespace DynamicPermissionList
 
         private static void parseJsonArray(JArray jArr, Permission parent)
         {
-            foreach (var item in jArr)
-            {
-                var permission = new Permission(item.Value<string>(), true);
+            foreach (var token in jArr.Children())
+            {                
+                var permission = new Permission(token[0].Value<string>(), token[1].Value<string>(), true);
                 parent.addChild(permission);
             }
         }

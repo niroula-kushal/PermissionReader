@@ -1,27 +1,27 @@
 ﻿{
   "Inventory" : {
     "Sales" : [
-      "Create",
-      "View",
-      "Cancel"
+      [ "Create", "Add sales" ],
+      [ "View", "View sales" ],
+      [ "Cancel", "Cancel sales" ]
     ]
   },
   "UserManagement" : {
-    "User" : [
-      "Create",
-      "Update",
-      "Disable"
+    "User": [
+      [ "Create" , "Create user" ],
+      [ "Update", "Update user"],
+      [ "Disable", "Disable User" ]
     ],
     "ACL" : {
-      "Role" : [
-        "Create",
-        "Update",
-        "Delete"
+      "Role": [
+        [ "Create", "Create Role" ],
+        [ "Update", "Update Role" ],
+        [ "Disable", "Disable Role" ]
       ],
-      "Permission" : [
-        "Assign",
-        "Revoke",
-        "View"
+      "Permission": [
+        [ "Assign", "Assign Permission" ],
+        [ "Revoke", "Revoke Permission" ],
+        [ "Disable", "Disable Permission" ]
       ]
     }
   }
