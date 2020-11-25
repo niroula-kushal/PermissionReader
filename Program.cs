@@ -20,7 +20,7 @@ namespace DynamicPermissionList
             Console.Write(permission.name);
             if (permission.isLeaf)
             {
-                Console.Write("  ");
+                Console.Write($" ({permission.label}) ");
                 Console.Write($"[{permission.resolveName()}]");
             }
 

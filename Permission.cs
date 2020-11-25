@@ -13,10 +13,13 @@ namespace DynamicPermissionList
 
         public bool isLeaf;
 
-        public Permission(string name, bool isLeaf = false)
+        public string label;
+
+        public Permission(string name, string label = null, bool isLeaf = false)
         {
             this.name = name;
             this.isLeaf = isLeaf;
+            this.label = label;
         }
 
         public void addChild(Permission childPermission)
